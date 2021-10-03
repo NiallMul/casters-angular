@@ -1,0 +1,19 @@
+#welcome-screen{
+  background-color: cornsilk;
+  border: black groove medium;
+  width: 80%;
+  margin-left: 10%;
+}
+
+#username-label, #password-label{
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+#login-btn, #register-btn{
+  font-size: 12pt;
+}
+
+#register-btn{
+  float: right;
+}

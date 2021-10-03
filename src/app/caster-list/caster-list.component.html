@@ -1,0 +1,39 @@
+<div class="army-selection">
+  <ul *ngFor="let casterList of casterSelection.casterList" id="armieslist">
+    <h1 id="armytitle">{{casterList.name}}</h1>
+    <br>
+    <div class="caster-selection">
+      <mat-expansion-panel *ngFor="let caster of casterList.casters" id="casterlist">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{caster.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <p *ngFor="let power of caster.powers" id="powersummary">
+              {{power.name}}
+            </p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table id="powers-table">
+          <thead>
+          <tr>
+            <td>Power name</td>
+            <td>Value needed</td>
+            <td>Attempted</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let power of caster.powers" id="powerlist">
+            <td>{{power.name}}</td>
+            <td>{{power.value}}</td>
+            <td>
+              <mat-slide-toggle></mat-slide-toggle>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+    </div>
+  </ul>
+  <button type="button" id="addCasterButton">Add caster</button>
+</div>

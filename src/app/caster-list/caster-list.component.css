@@ -1,0 +1,24 @@
+.army-selection{
+  background-color: cornsilk;
+  border: black groove medium;
+  width: 80%;
+  margin-left: 10%;
+}
+#armytitle{
+  font-family: cursive;
+  font-style: italic;
+}
+
+.caster-selection{
+  width: 90%;
+}
+
+#powers-table{
+  width: 100%;
+  border: white groove thin;
+}
+
+#addCasterButton{
+  margin-left: 10%;
+  font-size: 12pt;
+}

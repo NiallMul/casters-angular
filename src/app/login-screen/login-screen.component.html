@@ -1,0 +1,10 @@
+<div id="welcome-screen">
+  <label id="username-label" for="username">Username: </label>
+  <input #username id="username" type="text"/>
+  <br>
+  <label id="password-label" for="password">Password: </label>
+  <input #password id="password" type="password"/>
+  <br>
+  <button id="login-btn" type="button" (click)="login(username.value, password.value)">Login</button>
+  <button id="register-btn" type="button">Register</button>
+</div>
