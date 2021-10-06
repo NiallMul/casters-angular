@@ -12,15 +12,13 @@ import {LogServiceService} from "../log-service.service";
 export class CasterListComponent implements OnInit {
   casterSelection: CasterSelection = {casterList: []};
 
-  constructor(private casterListService: CasterListService, private log: LogServiceService) { }
+  constructor(private casterListService: CasterListService) { }
 
   ngOnInit(): void {
     this.getCasterList();
   }
 
   getCasterList(): void{
-    this.log.log("inside get caster list method, value of casters is: " + this.casterSelection.casterList.length);
-    this.casterListService.getCasterList()
-      .subscribe(casterSelection => this.casterSelection = casterSelection);
+    this.casterListService.getCasterList().then(casterSelection => this.casterSelection = casterSelection);
   }
 }

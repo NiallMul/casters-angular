@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
 import {CasterSelection} from "./CasterSelection";
-import {catchError, tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +17,13 @@ export class CasterListService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
-  getCasterList(): Observable<CasterSelection> {
-    return this.http.get<CasterSelection>(this.castersUrl);
-    // return this.http.get<CasterSelection>(this.castersUrl).pipe(
-    //   tap(_ => console.log("Fetched casterlist")),
-    //   catchError(this.handleError<CasterSelection>("getCasters"))
-    // );
+  async getCasterList() {
+    return await this.http.get<CasterSelection>(this.castersUrl).toPromise().catch(reason => {
+      this.handleError<CasterSelection>("getCasters: " + reason)
+    });
+
   }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
