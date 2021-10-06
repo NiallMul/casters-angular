@@ -18,10 +18,7 @@ export class CasterListService {
   }
 
   async getCasterList() {
-    return await this.http.get<CasterSelection>(this.castersUrl).toPromise().catch(reason => {
-      this.handleError<CasterSelection>("getCasters: " + reason)
-    });
-
+    return await this.http.get<CasterSelection>(this.castersUrl).toPromise()
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
