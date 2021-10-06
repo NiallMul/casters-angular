@@ -18,6 +18,5 @@ export class LoginScreenComponent implements OnInit {
 
   login = (name: string, password: string) => {
     this.router.navigateByUrl('/casterlist');
-
   }
 }
