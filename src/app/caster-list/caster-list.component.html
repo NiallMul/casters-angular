@@ -1,39 +1,38 @@
-<div class="army-selection">
+<div class="caster-selection">
+  <form>
   <ul *ngFor="let casterList of casterSelection.casterList" id="armieslist">
-    <h1 id="armytitle">{{casterList.name}}</h1>
-    <br>
-    <div class="caster-selection">
-      <mat-expansion-panel *ngFor="let caster of casterList.casters" id="casterlist">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{caster.name}}
-          </mat-panel-title>
-          <mat-panel-description>
-            <p *ngFor="let power of caster.powers" id="powersummary">
-              {{power.name}}
-            </p>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <table id="powers-table">
-          <thead>
-          <tr>
-            <td>Power name</td>
-            <td>Value needed</td>
-            <td>Attempted</td>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let power of caster.powers" id="powerlist">
-            <td>{{power.name}}</td>
-            <td>{{power.value}}</td>
-            <td>
-              <mat-slide-toggle></mat-slide-toggle>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </mat-expansion-panel>
-    </div>
+    <mat-expansion-panel *ngFor="let caster of casterList.casters" id="casterlist" className="casterList">
+      <mat-expansion-panel-header>
+        <mat-panel-title [id]="casterName">
+          {{caster.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <p *ngFor="let power of caster.powers" id="powersummary">
+            {{power.name}}
+          </p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <table id="powers-table">
+        <thead>
+        <tr>
+          <td>Power name</td>
+          <td>Value needed</td>
+          <td>Attempted</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let power of caster.powers" id="powerlist">
+          <td [id]="powerName">{{power.name}}</td>
+          <td>{{power.value}}</td>
+          <td>
+            <mat-slide-toggle [id]="caster.name+'-name-toggle-'+power.name"></mat-slide-toggle>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-expansion-panel>
   </ul>
+  </form>
   <button type="button" id="addCasterButton">Add caster</button>
+  <button type="button" id="endTurnButton" (click)="clearToggles()">End turn</button>
 </div>
