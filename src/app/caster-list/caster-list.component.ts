@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {CasterListService} from "../caster-list.service";
 import {CasterSelection} from "../CasterSelection";
 

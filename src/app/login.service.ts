@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of} from "rxjs";
+import {CasterSelection} from "./CasterSelection";
+import {User} from "./User";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +16,8 @@ export class LoginService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 
-  login(): void{
-
+  async login(user: User) {
+    return await this.http.post<User>(this.loginUrl, user).toPromise();
   }
 
 }
