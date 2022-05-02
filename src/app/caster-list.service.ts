@@ -11,7 +11,7 @@ export class CasterListService {
   constructor(private http: HttpClient) {
   }
 
-  private castersUrl = 'http://localhost:8080/casters';
+  private castersUrl = 'http://63.32.136.243:8080/casters';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

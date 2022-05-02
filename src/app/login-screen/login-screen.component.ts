@@ -19,17 +19,18 @@ export class LoginScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login = (name: string, password: string) => {
+  login = async (name: string, password: string) => {
     this.user.username = name;
     this.user.password = password;
 
     console.log(`username: ${this.user.username}`)
+    debugger
+    await this.loginService.login(this.user).then(user => this.user = user);
 
-    this.loginService.login(this.user).then(user => this.user = user);
-    if(!this.user.accountLocked){
+    if (!this.user.accountLocked) {
       console.log(`success`)
       this.router.navigateByUrl('/casterlist');
-    }else{
+    } else {
       window.alert("Your account has been locked");
     }
   }
